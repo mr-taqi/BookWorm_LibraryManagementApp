@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import reducer from "./authSlice";
 
-const popupSlice = ({
+const popupSlice = createSlice ({
     name: "popup",
     initialState: {
         settingPopup: false,
@@ -31,7 +31,7 @@ const popupSlice = ({
         toggleReturnBookPopup(state) {
             state.returnBookPopup = !state.returnBookPopup;
         },
-        togglecloseAllPopup(state) {
+        toggleCloseAllPopup(state) {
             state.addBookPopup = false;
             state.readBookPopup = false;
             state.returnBookPopup = false;
@@ -50,6 +50,6 @@ export const {
     toggleRecordBookPopup,
     toggleReturnBookPopup,
     togglAddNewAdminPopup,
-    togglecloseAllPopup
-} = popupSlice.action
-export default popupSlice.reducers;
+    toggleCloseAllPopup
+} = popupSlice.actions;
+export default popupSlice.reducer;

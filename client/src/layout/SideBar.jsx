@@ -14,6 +14,7 @@ import { togglAddNewAdminPopup } from "../store/slices/popUpSlice";
 import { use } from "react";
 import { toast } from "react-toastify";
 import { SidebarOpen } from "lucide-react";
+import AddNewAdmin from "../popups/AddNewAdmin";
 
 const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
 
@@ -56,7 +57,7 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
             <span>Books</span>
           </button>
 
-          {isAuthenticated && user?.role === "Admin" && (
+          {/* {isAuthenticated && user?.role === "Admin" && ( */}
             <>
               <button className="w-full py-2 font-medium bg-transparent rounded-md hover:cursor-pointer flex items-center space-x-2"
                 onClick={() => setSelectedComponent("Catalog")} >
@@ -76,8 +77,8 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
                 <RiAdminFill className="w-6 h-6" /> <span>Add New Admin</span>
               </button>
             </>
-          )
-          }
+          {/* ) */}
+          {/* } */}
 
           {isAuthenticated && user?.role === "User" && (
             <>
@@ -99,7 +100,8 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
 
         <div className="px-6 py-4">
           <button className="py-2 font-medium text-center bg-transparent rounded-me
-          hover:cursor-pointer flex items-center justify-center space-x-5 mx-auto w-fit">
+          hover:cursor-pointer flex items-center justify-center space-x-5 mx-auto w-fit" 
+          onClick={handleLogout} >
             <img src={logoutIcon} alt="icon" />
             <span>Logout</span>
           </button>
@@ -107,6 +109,7 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
         <img src={closeIcon} alt="icon" onClick={() => setIsSideBarOpen(!isSideBarOpen)}
           className="h-fit w-fit absolute right-4 mt-4 block md:hidden" />
       </aside>
+      {addNewAdminPopup && <AddNewAdmin />}
     </>
   );
 };
