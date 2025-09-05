@@ -22,7 +22,7 @@ const authSlice = createSlice({
         },
         registerFailed(state, action) {
             state.loading = false;
-            state.message = action.payload;
+            state.error = action.payload;
         },
 
 
@@ -39,7 +39,7 @@ const authSlice = createSlice({
         },
         otpVerificationFailed(state, action) {
             state.loading = false;
-            state.message = action.payload;
+            state.error = action.payload;
 
         },
 
@@ -57,7 +57,7 @@ const authSlice = createSlice({
         },
         loginFailed(state, action) {
             state.loading = false;
-            state.message = action.payload;
+            state.error = action.payload;
         },
 
 

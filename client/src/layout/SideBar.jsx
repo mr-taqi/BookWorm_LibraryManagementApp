@@ -77,7 +77,7 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
                 <RiAdminFill className="w-6 h-6" /> <span>Add New Admin</span>
               </button>
             </>
-          {/* ) */}
+            {/* ) */}
           {/* } */}
 
           {isAuthenticated && user?.role === "User" && (

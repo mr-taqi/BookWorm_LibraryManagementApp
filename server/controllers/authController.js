@@ -10,6 +10,11 @@ import { generateForgotPasswordEmailTemplate } from "../utils/emailTemplates.js"
 
 export const register = catchAsyncErrors(async (req, res, next) => {
   try {
+
+    if (!req.body) {
+      return next(new ErrorHandler("Request body is missing.", 400));
+    }
+    
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
@@ -59,6 +64,7 @@ export const register = catchAsyncErrors(async (req, res, next) => {
 
     sendVerificationCode(verificationCode, email, res);
   } catch (err) {
+    console.log("Error while registering the user:")
     return next(err);
   }
 });
@@ -115,11 +121,6 @@ export const verifyOTP = catchAsyncErrors(async (req, res, next) => {
     user.verificationCode = null;
     user.verificationCodeExpire = null;
     await user.save({ validateModifiedOnly: true });
-
-    // res.status(200).json({
-    //   success: true,
-    //   message: "OTP verified successfully.",
-    // });
 
     sendToken(user, 200, "Account Verified.", res);
 
@@ -238,18 +239,18 @@ export const resetPassword = catchAsyncErrors(async (req, res, next) => {
       )
     );
   }
-  
-  if(req.body.password !== req.body.confirmPassword){
+
+  if (req.body.password !== req.body.confirmPassword) {
     return next(
       new ErrorHandler(
         "Password and Confirm password do not match.", 400)
     );
   }
 
-  if(
+  if (
     req.body.password.length < 8 ||
-    req.body.password.length > 16 || 
-    req.body.confirmPassword.length < 8 || 
+    req.body.password.length > 16 ||
+    req.body.confirmPassword.length < 8 ||
     req.body.confirmPassword.length > 16
   ) {
     return next(
@@ -270,9 +271,9 @@ export const resetPassword = catchAsyncErrors(async (req, res, next) => {
 
 export const updatePassword = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findById(req.user._id).select("+password");
-  const {currentPassword, newPassword, confirmNewPassword} = req.body;
+  const { currentPassword, newPassword, confirmNewPassword } = req.body;
 
-  if(!currentPassword || !newPassword || !confirmNewPassword){
+  if (!currentPassword || !newPassword || !confirmNewPassword) {
     return next(
       new ErrorHandler("All fields are required.", 400)
     );
@@ -280,13 +281,13 @@ export const updatePassword = catchAsyncErrors(async (req, res, next) => {
 
   const isPasswordMatched = await bcrypt.compare(currentPassword, user.password);
 
-  if(!isPasswordMatched){
+  if (!isPasswordMatched) {
     return next(
       new ErrorHandler("Current password is incorrect.", 400)
     );
   }
 
-  if(
+  if (
     newPassword.length < 8 ||
     newPassword.length > 16 ||
     confirmNewPassword.length < 8 ||
@@ -297,7 +298,7 @@ export const updatePassword = catchAsyncErrors(async (req, res, next) => {
     );
   }
 
-  if(newPassword !== confirmNewPassword){
+  if (newPassword !== confirmNewPassword) {
     return next(
       new ErrorHandler("new password and confirm new password do not mathc.", 400)
     );
@@ -307,7 +308,7 @@ export const updatePassword = catchAsyncErrors(async (req, res, next) => {
   user.password = hashedPassword;
   await user.save();
   res.status(200).json({
-    success : true,
-    message : "Password Updated Successfully!"
+    success: true,
+    message: "Password Updated Successfully!"
   });
 });
