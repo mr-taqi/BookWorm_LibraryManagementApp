@@ -71,16 +71,20 @@ export const register = catchAsyncErrors(async (req, res, next) => {
 
 export const verifyOTP = catchAsyncErrors(async (req, res, next) => {
 
-  const { email, otp } = req.body
+  if(!req.body) {
+    return next(new ErrorHandler("Request body is missing.", 400));
+  }
 
-  if (!email || !otp) {
+  const { email } = req.body
+
+  if (!email.email || !email.otp) {
     return next(new ErrorHandler("Missing email or OTP.", 400));
   }
 
   try {
 
     const userAllEntries = await User.find({
-      email,
+      email: email.email,
       accountVerified: false,
     }).sort({ createdAt: -1 });
 
@@ -101,7 +105,7 @@ export const verifyOTP = catchAsyncErrors(async (req, res, next) => {
       user = userAllEntries[0];
     }
 
-    if (user.verificationCode !== Number(otp)) {
+    if (user.verificationCode !== Number(email.otp)) {
       return next(new ErrorHandler("Invalid OTP. Please try again.", 400));
     }
 

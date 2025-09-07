@@ -8,9 +8,9 @@ import { toast } from "react-toastify";
 
 const Register = () => {
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
 
@@ -31,7 +31,8 @@ const Register = () => {
 
   useEffect(() => {
     if (message) {
-      navigateTo(`otp-verification/${email}`);
+      toast.success(message);
+      navigateTo(`/otp-verification/${email}`);
       dispatch(resetAuthSlice());
     }
     if (error) {
