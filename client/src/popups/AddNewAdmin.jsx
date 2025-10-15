@@ -4,7 +4,7 @@ import closeIcon from "../assets/close-square.png";
 import keyIcon from "../assets/key.png";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewAdmin } from "../store/slices/userSlice"
-import { togglAddNewAdminPopup } from "../store/slices/popupSlice";
+import { togglAddNewAdminPopup } from "../store/slices/popUpSlice";
 
 const AddNewAdmin = () => {
 
@@ -41,7 +41,7 @@ const AddNewAdmin = () => {
   };
 
   return <>
-    <h1 className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="w-full bg-white rounded-lg shadow-lg md:w-1/3">
         <div className="p-6">
           <header className="flex items-center justify-between mb-7 pb-5 border-b-[1px] border-black">
@@ -112,7 +112,7 @@ const AddNewAdmin = () => {
           </form>
         </div>
       </div>
-    </h1>
+    </div>
   </>;
 };
 
