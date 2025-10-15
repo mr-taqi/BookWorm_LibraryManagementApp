@@ -15,16 +15,16 @@ const Header = () => {
     const updateDateTime = () => {
       const now = new Date();
 
-      const hours = now.getHours() % 12 || 12;
+      const hours = String(now.getHours() % 12 || 12).padStart(2, "0");
       const minutes = now.getMinutes().toString().padStart(2, "0");
       const ampm = now.getHours() >= 12 ? "PM" : "AM";
 
-      setCurrentTime(`${hours} : ${minutes} : ${ampm}`)
+      setCurrentTime(`${hours} : ${minutes} ${ampm}`)
 
       const options = {
         month: "short",
-        dat: "numerice",
-        year: "numerice"
+        day: "numeric",
+        year: "numeric"
       };
 
       setCurrentDate(now.toLocaleDateString("en-IN", options));
@@ -39,7 +39,7 @@ const Header = () => {
   }, [])
 
   return <>
-    <header className="absolute top-0 bg-white w-full py-4 px-6 left-0 shadow-md flex justify-center items-center">
+    <header className="absolute top-0 bg-white w-full py-4 px-6 left-0 shadow-md flex justify-between items-center">
       {/* LEFT-SIDE */}
       <div className="flex items-center gap-2">
         <img src={userIcon} alt="userIcon" className="w-8 h-8" />
@@ -59,10 +59,10 @@ const Header = () => {
           <span>{currentDate}</span>
         </div>
         <span className="h-14 bg-black w-[2px]" />
-        <img src={settingIcon} alt="settingIcon" className="w-8 h-8" onClick={() => toggleSettingPopup()} />
+        <img src={settingIcon} alt="settingIcon" className="w-8 h-8" onClick={() => dispatch(toggleSettingPopup())} />
       </div>
     </header>
-  </>;
+  </>
 };
 
 export default Header;

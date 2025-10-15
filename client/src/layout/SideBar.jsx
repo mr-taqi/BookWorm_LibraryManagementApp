@@ -15,11 +15,12 @@ import { use } from "react";
 import { toast } from "react-toastify";
 import { SidebarOpen } from "lucide-react";
 import AddNewAdmin from "../popups/AddNewAdmin";
+import SettingPopup from "../popups/SettingPopup";
 
 const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
 
   const dispatch = useDispatch();
-  const { addNewAdminPopup } = useSelector(state => state.popup);
+  const { addNewAdminPopup, settingPopup } = useSelector(state => state.popup);
   const { loading, error, message, user, isAuthenticated } = useSelector((state) => state.auth);
 
   const handleLogout = () => {
@@ -110,6 +111,7 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
           className="h-fit w-fit absolute right-4 mt-4 block md:hidden" />
       </aside>
       {addNewAdminPopup && <AddNewAdmin />}
+      {settingPopup && <SettingPopup />}
     </>
   );
 };

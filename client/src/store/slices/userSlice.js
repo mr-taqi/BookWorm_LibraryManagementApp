@@ -56,6 +56,7 @@ export const addNewAdmin = (data ) => async (dispatch) => {
     }).then((res)=>{
         dispatch(userSlice.actions.addNewAdminSuccess());
         toast.success(res.data.message);
+        dispatch(toggleADdNewAdminPopup());
     }).catch((err) => {
         userSlice.actions.addNewAdminFailed();
         toast.error(err.response.data.message); 
