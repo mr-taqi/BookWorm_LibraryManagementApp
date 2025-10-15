@@ -10,7 +10,7 @@ import usersIcon from "../assets/people.png";
 import { RiAdminFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, resetAuthSlice } from "../store/slices/authSlice";
-import { togglAddNewAdminPopup } from "../store/slices/popUpSlice";
+import { togglAddNewAdminPopup, toggleSettingPopup } from "../store/slices/popUpSlice";
 import { use } from "react";
 import { toast } from "react-toastify";
 import { SidebarOpen } from "lucide-react";
@@ -57,7 +57,7 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
             <span>Books</span>
           </button>
 
-          {/* {isAuthenticated && user?.role === "Admin" && ( */}
+          {isAuthenticated && user?.role === "Admin" && (
             <>
               <button className="w-full py-2 font-medium bg-transparent rounded-md hover:cursor-pointer flex items-center space-x-2"
                 onClick={() => setSelectedComponent("Catalog")} >
@@ -77,8 +77,8 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
                 <RiAdminFill className="w-6 h-6" /> <span>Add New Admin</span>
               </button>
             </>
-            {/* ) */}
-          {/* } */}
+            )
+          }
 
           {isAuthenticated && user?.role === "User" && (
             <>
@@ -91,7 +91,7 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
           )}
 
           <button className="w-full py-2 font-medium bg-transparent rounded-md hover:cursor-pointer flex items-center space-x-2"
-          // onClick={() => setSelectedComponent("My Borrowed Books")}
+          onClick={() => dispatch(toggleSettingPopup())}
           >
             <img src={settingIcon} alt="icon" />
             <span>Update Credentials</span>

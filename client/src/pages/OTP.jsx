@@ -23,9 +23,9 @@ const OTP = () => {
   };
 
   useEffect(() => {
-    if (message) {
-      toast.success(message);
-    }
+    // if (message) {
+    //   toast.success(message);
+    // }
     if (error) {
       toast.error(error);
       dispatch(resetAuthSlice());
@@ -37,7 +37,6 @@ const OTP = () => {
   };
 
   return <>
-
     <div className="flex flex-col justify-center md:flex-row h-screen">
       {/* LEFT_SIDE */}
       <div className="w-full md:w-1/2 flex items-center justify-center bg-white p-8 relative">
@@ -53,7 +52,7 @@ const OTP = () => {
 
           <form onSubmit={handleOtpVerification}>
             <div className="mb-4">
-              <input type="number" value={otp} onChange={(e) => setOtp(e.target.value)} placeholder="OTP" className="w-full px-4 py-3 border border-black rounded-md focus:outline-none"/>
+              <input type="number" value={otp} onChange={(e) => setOtp(e.target.value)} placeholder="OTP" className="w-full px-4 py-3 border border-black rounded-md focus:outline-none" />
             </div>
             <button type="submit" className="border-2 mt-5 border-black w-full font-semibold bg-black text-white py-2 rounded-lg hover:bg-white hover:text-black transition">VERIFY OTP</button>
           </form>
@@ -64,14 +63,13 @@ const OTP = () => {
       <div className="hidden md:flex w-full md:w-1/2 bg-black text-white flex-col justify-center items-center p-8 rounded-tl-[80px] rounded-bl-[80px]">
         <div className="text-center h-[400px]">
           <div className="flex justify-center mb-12">
-            <img src={logo_with_title} alt="logo" className="mb-12 h-44 w-auto"/>
+            <img src={logo_with_title} alt="logo" className="mb-12 h-44 w-auto" />
           </div>
           <p className="text-gray-300 mb-12">New to the platform? Sign up now!</p>
           <Link to={"/register"} className="border-2 mt-5 border-white px-8 w-full font-semibold bg-black text-white py-2 rounded-lg hover:bg-white hover:text-black transition">SIGN UP</Link>
         </div>
       </div>
     </div>
-
   </>;
 };
 

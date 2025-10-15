@@ -28,7 +28,7 @@ const Home = () => {
           setIsSideBarOpen(!isSideBarOpen);
         }} />
       </div>
-      <SideBar isSideBarOpen={isSideBarOpen} setIsSideBarOpen={setIsSideBarOpen} selectedComponent={setSelectedComponent} />
+      <SideBar isSideBarOpen={isSideBarOpen} setIsSideBarOpen={setIsSideBarOpen} setSelectedComponent={setSelectedComponent} />
 
       {
         (
