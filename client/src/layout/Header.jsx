@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import settingIcon from "../assets/setting.png";
 import userIcon from "../assets/user.png";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleSettingPopup } from "../store/slices/popUpSlice";
+import { toggleSettingPopup } from "../store/slices/popupSlice";
 
 const Header = () => {
   const dispatch = useDispatch()
