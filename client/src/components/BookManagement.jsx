@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BookA, NotebookPen } from "lucide-react";
-import { useDispatch, useSelector } from "react-redux"; 
+import { useDispatch, useSelector } from "react-redux";
 import { toggleReadBookPopup, toggleRecordBookPopup } from "../store/slices/popupSlice";
 import { toast } from "react-toastify";
 import { fetchAllBooks, resetBookSlice } from "../store/slices/bookSlice";
@@ -12,15 +12,15 @@ const BookManagement = () => {
   const dispatch = useDispatch();
 
   const { loading, error, message, books } = useSelector((state) => state.book);
-  const { isAuthenticated , user } = useSelector((state) => state.auth);
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
   const { addBookPopup, readBookPopup, recordBookkPopup } = useSelector((state) => state.popup);
   const {
-    loading : borroeSliceLoading,
-    error : borrowSliceError,
-    message : borrowSliceMessage,
+    loading: borroeSliceLoading,
+    error: borrowSliceError,
+    message: borrowSliceMessage,
   } = useSelector((state) => state.borrow);
 
-  const [readBook, setReadBook] = useState({}); 
+  const [readBook, setReadBook] = useState({});
   const openReadPopup = (id) => {
     const book = books.find((book) => book._id === id);
     setReadBook(book);
@@ -43,7 +43,7 @@ const BookManagement = () => {
       dispatch(resetBorrowSlice());
     }
 
-    if(error || borrowSliceError){
+    if (error || borrowSliceError) {
       toast.error(error || borrowSliceError);
       dispatch(resetBookSlice());
       dispatch(resetBorrowSlice());
