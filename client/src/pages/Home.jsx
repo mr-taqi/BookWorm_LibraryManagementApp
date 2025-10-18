@@ -37,7 +37,7 @@ const Home = () => {
               case "Dashboard":
                 return user?.role === "User" ? (<UserDashboard />) : (<AdminDashboard />)
 
-              case "Book":
+              case "Books":
                 return <BookManagement />
 
               case "Catalog":
