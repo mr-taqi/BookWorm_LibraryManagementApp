@@ -6,7 +6,7 @@ const borrowSlice = createSlice({
     initialState: {
         loading: false,
         error: null,
-        useBorrowedBooks: [],
+        userBorrowedBooks: [],
         allBorrowedBooks: [],
         message: null,
     },
@@ -18,7 +18,7 @@ const borrowSlice = createSlice({
         },
         fetchUserBorrowedBooksSuccess: (state, action) => {
             state.loading = false;
-            state.useBorrowedBooks = action.payload;
+            state.userBorrowedBooks = action.payload;
         },
         fetchUserBorrowedBooksFailed: (state, action) => {
             state.loading = false;
