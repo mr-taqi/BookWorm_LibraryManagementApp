@@ -14,7 +14,7 @@ export const register = catchAsyncErrors(async (req, res, next) => {
     if (!req.body) {
       return next(new ErrorHandler("Request body is missing.", 400));
     }
-    
+
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
@@ -71,7 +71,7 @@ export const register = catchAsyncErrors(async (req, res, next) => {
 
 export const verifyOTP = catchAsyncErrors(async (req, res, next) => {
 
-  if(!req.body) {
+  if (!req.body) {
     return next(new ErrorHandler("Request body is missing.", 400));
   }
 

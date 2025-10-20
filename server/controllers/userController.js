@@ -47,27 +47,27 @@ export const registerNewAdmin = catchAsyncErrors(async (req, res, next) => {
         avatar.tempFilePath, {
         folder: "LIBRARY_MANAGEMENT_SYSTEM_ADMIN_AVATARS"
     });
-    if(!cloudinaryResponse || cloudinaryResponse.error){
+    if (!cloudinaryResponse || cloudinaryResponse.error) {
         console.error("Cloudinary error: ", cloudinaryResponse.error || "unknown cloudinary error.");
         return next(
-            new ErrorHandler("Failed to upload avatar image to cloudinary.",500)
+            new ErrorHandler("Failed to upload avatar image to cloudinary.", 500)
         );
     }
 
     const admin = await User.create({
-        name, 
+        name,
         email,
-        password : hashedPassword, 
-        role : "Admin",
-        accountVerified : true,
-        avatar : {
-            public_id : cloudinaryResponse.public_id,
-            url : cloudinaryResponse.secure_url,
+        password: hashedPassword,
+        role: "Admin",
+        accountVerified: true,
+        avatar: {
+            public_id: cloudinaryResponse.public_id,
+            url: cloudinaryResponse.secure_url,
         },
     });
 
     res.status(201).json({
-        sucess : true,
+        sucess: true,
         message: "Admin user registered successfully!",
         admin,
     });

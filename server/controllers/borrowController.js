@@ -32,7 +32,7 @@ export const recordBorrowedBook = catchAsyncErrors(
             bk => bk.bookId.toString() === id && bk.returned === false
         );
 
-        if(isAlreadyBorrowed) {
+        if (isAlreadyBorrowed) {
             return next(
                 new ErrorHandler("Book already borrowed.", 400)
             );
@@ -43,10 +43,10 @@ export const recordBorrowedBook = catchAsyncErrors(
         await book.save();
 
         user.borrowedBooks.push({
-            bookId : book._id,
-            bookTitle : book.title,
-            borrowedDate : new Date(),
-            dueDate : new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
+            bookId: book._id,
+            bookTitle: book.title,
+            borrowedDate: new Date(),
+            dueDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
         });
 
         await user.save();
@@ -83,14 +83,14 @@ export const returnBorrowBook = catchAsyncErrors(async (req, res, next) => {
     }
 
     const borrowedBook = user.borrowedBooks.find(
-        bk => bk.bookId.toString() === bookId && bk.returened === false
+        bk => bk.bookId.toString() === bookId && bk.returned === false
     )
     if (!borrowedBook) {
         return next(
             new ErrorHandler("You have not borrowed this book.", 400)
         )
     }
-    borrowedBook.returened = true;
+    borrowedBook.returned = true;
     await user.save();
 
     book.quantity += 1;
@@ -98,7 +98,7 @@ export const returnBorrowBook = catchAsyncErrors(async (req, res, next) => {
     await book.save();
 
     const borrow = await Borrow.findOne({
-        book : bookId,
+        book: bookId,
         "user.email": email,
         returnDate: null,
     });
@@ -113,25 +113,25 @@ export const returnBorrowBook = catchAsyncErrors(async (req, res, next) => {
     await borrow.save();
 
     res.status(200).json({
-        success : true,
-        message : fine !== 0 ?
-         `The book has been returned successfully. The total charges with fine are Rs.${ fine + book.price }` :
-        `The book has been returned successfully. The total charges are Rs.${ book.price }`,
+        success: true,
+        message: fine !== 0 ?
+            `The book has been returned successfully. The total charges with fine are Rs.${fine + book.price}` :
+            `The book has been returned successfully. The total charges are Rs.${book.price}`,
     });
 });
 
 export const borrowedBooks = catchAsyncErrors(async (req, res, next) => {
     const { borrowedBooks } = req.user;
     res.status(200).json({
-        success : true,
+        success: true,
         borrowedBooks,
     });
 });
 
 export const getBorrowedBooksForAdmin = catchAsyncErrors(async (req, res, next) => {
-    const  borrowedBooks  = await Borrow.find();
+    const borrowedBooks = await Borrow.find();
     res.status(200).json({
-        success : true,
+        success: true,
         borrowedBooks,
     });
 });
