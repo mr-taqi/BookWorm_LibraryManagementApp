@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "BorrowedBook",
             },
-            returened: {
+            returned: {
                 type: Boolean,
                 default: false,
             },
