@@ -10,7 +10,7 @@ import usersIcon from "../assets/people.png";
 import { RiAdminFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, resetAuthSlice } from "../store/slices/authSlice";
-import { togglAddNewAdminPopup, toggleSettingPopup } from "../store/slices/popupSlice";
+import { togglAddNewAdminPopup, toggleSettingPopup } from "../store/slices/popUpSlice";
 import { use } from "react";
 import { toast } from "react-toastify";
 import { SidebarOpen } from "lucide-react";
