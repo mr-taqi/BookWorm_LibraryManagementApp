@@ -48,7 +48,7 @@ const Users = () => {
                   {
                     users && users.filter((u) => u.role === "User").map((user, index) => (
                       <tr key={user._id} className="border-b hover:bg-gray-100">
-                        <td className="px-4 py-2">{user._id}</td>
+                        <td className="px-4 py-2">{index + 1}</td>
                         <td className="px-4 py-2">{user.name}</td>
                         <td className="px-4 py-2">{user.email}</td>
                         <td className="px-4 py-2">{user.role}</td>

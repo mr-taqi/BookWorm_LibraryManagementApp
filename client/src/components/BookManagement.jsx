@@ -128,7 +128,7 @@ const BookManagement = () => {
                           <td className="py-2 px-4">{book.quantity}</td>
                         )
                       }
-                      <td className="py-2 px-4">${book.price}</td>
+                      <td className="py-2 px-4">₹{book.price}</td>
                       <td className="py-2 px-4">
                         {book.availability ? (
                           <span className="text-green-600 font-medium">Available</span>
