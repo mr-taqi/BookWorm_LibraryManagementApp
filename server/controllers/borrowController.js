@@ -25,11 +25,11 @@ export const recordBorrowedBook = catchAsyncErrors(
 
         if (book.quantity === 0) {
             return next(
-                new ErrorHandler("Book not avaialable.(Out Stock!)", 400))
+                new ErrorHandler("Book not avaialable.(Out of Stock!)", 400))
         }
 
         const isAlreadyBorrowed = user.borrowedBooks.find(
-            bk => bk.bookId.toString() === id && bk.returened === false
+            bk => bk.bookId.toString() === id && bk.returned === false
         );
 
         if(isAlreadyBorrowed) {

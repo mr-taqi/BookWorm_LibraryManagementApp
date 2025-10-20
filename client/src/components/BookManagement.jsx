@@ -6,9 +6,9 @@ import { toast } from "react-toastify";
 import { fetchAllBooks, resetBookSlice } from "../store/slices/bookSlice";
 import { fetchAllBorrowedBooks, resetBorrowSlice } from "../store/slices/borrowSlice";
 import Header from "../layout/Header";
-import AddBookPopup from "../popups/AddBookPopup"
-import ReadBookPopup from "../popups/ReadBookPopup"
-import RecordBookPopup from "../popups/RecordBookPopup"
+import AddBookPopup from "../popups/AddBookPopup";
+import ReadBookPopup from "../popups/ReadBookPopup";
+import RecordBookPopup from "../popups/RecordBookPopup";
 
 const BookManagement = () => {
 
@@ -139,8 +139,8 @@ const BookManagement = () => {
                       {
                         isAuthenticated && user?.role === "Admin" && (
                           <td className="py-2 px-4 flex space-x-2 my-3 justify-center">
-                            <BookA onClick={() => openReadPopup(book._id)} />
-                            <NotebookPen onClick={() => openRecordBookPopup(book._id)} />
+                            <BookA onClick={() => openReadPopup(book._id)} className="cursor-pointer"/>
+                            <NotebookPen onClick={() => openRecordBookPopup(book._id)} className="cursor-pointer" />
                           </td>
                         )
                       }
