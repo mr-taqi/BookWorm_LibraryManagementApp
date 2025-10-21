@@ -122,7 +122,7 @@ export const returnBook = (email,  id) => async (dispatch) => {
     await axios.put(`http://localhost:4000/api/v1/borrow/return-borrowed-book/${id}`, {email}, {
         withCredentials: true,  
         headers : {
-            "co ntent-type" : "application/json"
+            "content-type" : "application/json"
         }
     }).then((res) => {
         dispatch(borrowSlice.actions.returnBookSuccess(res.data.message));
