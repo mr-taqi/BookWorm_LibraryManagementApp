@@ -64,7 +64,7 @@ const UserDashboard = () => {
         hoverOffset: 4,
       }
     ],
-  }
+  };
 
   return <>
 
@@ -117,7 +117,7 @@ const UserDashboard = () => {
           </div>
 
           <div className="bg-white text-lg p-7 sm:text-xl xl:text-3xl 2xl:text-4xl min-h-52 font-serif relative flex-[3] flex justify-center items-center rounded-2xl">
-            <h4 className="overflow-y-hidden">A reader lives a thousand lives before he dies . . . The man who never reads lives only one.</h4>
+            <h4 className="overflow-y-hidden">Embarking on the journy of reading fosters personal growth, nurturing a path towards excellence and the refinedment of character.</h4>
             <p className="text-gray-700 text-sm sm:text-lg absolute right-[35px] sm:right-[78px] bottom-[10px]">
               ~ BookWorm Team
             </p>
