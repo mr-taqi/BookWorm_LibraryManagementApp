@@ -35,7 +35,7 @@ const userSlice = createSlice({
 export const fetchAllUsers = () => async (dispatch) => {
     dispatch(userSlice.actions.fetchAllUsersRequest());
     await axios
-        .get("http://localhost:4000/api/v1/user/all", { withCredentials: true })
+        .get("https://bookworm-library-app-diployment.onrender.com/api/v1/user/all", { withCredentials: true })
         .then((res) => {
             dispatch(userSlice.actions.fetchAllUsersSuccess(res.data.users));
         })
@@ -48,7 +48,7 @@ export const fetchAllUsers = () => async (dispatch) => {
 
 export const addNewAdmin = (data ) => async (dispatch) => {
     dispatch(userSlice.actions.addNewAdminRequest());
-    await axios.post("http://localhost:4000/api/v1/user/add/new-admin", data, {
+    await axios.post("https://bookworm-library-app-diployment.onrender.com/api/v1/user/add/new-admin", data, {
         withCredentials : true,
         headers : {
             "Content-Type" :  "multipart/form-data",
