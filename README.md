@@ -1,7 +1,7 @@
 
 # Library Management System (MERN Stack)
 
-A production-grade Library Management System built using the MERN stack (MongoDB, Express, React, Node.js) inspired by CodeWithZeeshu’s YouTube tutorial series. This application features robust authentication, role-based access, secure OTP flows, admin dashboards, real-world book issuing/returning logic, and a responsive interface.
+A production-grade Library Management System built using the MERN stack (MongoDB, Express, React, Node.js). This application features robust authentication, role-based access, secure OTP flows, admin dashboards, real-world book issuing/returning logic, and a responsive interface.
 
 ## Features
 
@@ -15,11 +15,6 @@ A production-grade Library Management System built using the MERN stack (MongoDB
 - Email notifications for key actions (Nodemailer)
 - Responsive design (Tailwind CSS, React)
 - State management with Redux Toolkit
-
-## Demo
-
-- [YouTube Part 1: Backend & Logic](https://youtu.be/ytkuhDdDOIo?si=9ZKEtG6BLMJLc-BS)
-- [YouTube Part 2: Frontend & UI](https://youtu.be/Uzaag6YJPY4?si=lsSpXCvxF4HENaG5)
 
 ## Tech Stack
 
@@ -126,13 +121,14 @@ npm start
 - Fine/overdue settings are customizable in backend config
 - Extendable: add wishlists, recommendations, etc.
 
+```
 ## Screenshots
 
 *(Add screenshots/gifs here)*
+```
 
 ## Credits
 
-- Tutorial: [CodeWithZeeshu](https://www.youtube.com/@CodeWithZeeshu)
 - Redux Toolkit: [Docs](https://redux-toolkit.js.org/)
 - Tailwind CSS: [Docs](https://tailwindcss.com/)
 
