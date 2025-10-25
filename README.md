@@ -1,0 +1,168 @@
+Below is a complete **README.md** file written in proper Markdown, ready for use in your MERN Stack Library Management System project. You can copy and use it as-is in your repository. All code blocks, section headers, and instructions follow best open-source practices.
+
+***
+
+```markdown
+# Library Management System (MERN Stack)
+
+A production-grade Library Management System built using the MERN stack (MongoDB, Express, React, Node.js) inspired by CodeWithZeeshu’s YouTube tutorial series. This application features robust authentication, role-based access, secure OTP flows, admin dashboards, real-world book issuing/returning logic, and a responsive interface.
+
+## Features
+
+- User authentication with JWT and email OTP verification
+- Role-based dashboards for Admins and Members
+- CRUD for books (add, edit, delete, view)
+- Book issuing and returning with fine calculation
+- Password management: forgot/reset flows
+- Admin panel for user and book management
+- Automated overdue detection and fine automation (NodeCron)
+- Email notifications for key actions (Nodemailer)
+- Responsive design (Tailwind CSS, React)
+- State management with Redux Toolkit
+
+## Demo
+
+- [YouTube Part 1: Backend & Logic](https://youtu.be/ytkuhDdDOIo?si=9ZKEtG6BLMJLc-BS)
+- [YouTube Part 2: Frontend & UI](https://youtu.be/Uzaag6YJPY4?si=lsSpXCvxF4HENaG5)
+
+## Tech Stack
+
+| Layer      | Technology             |
+| ---------- | ---------------------- |
+| Frontend   | React.js, Tailwind CSS |
+| Backend    | Node.js, Express.js    |
+| Database   | MongoDB (Mongoose ORM) |
+| State Mgmt | Redux Toolkit          |
+| Auth       | JWT, bcrypt.js         |
+| Mailing    | Nodemailer             |
+| Automation | NodeCron               |
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js >= 18.x
+- npm >= 8.x
+- MongoDB (local or hosted)
+- Git
+
+### Installation
+
+#### 1. Clone the repository
+
+```
+git clone <your-repo-url>
+cd <project-root>
+```
+
+#### 2. Backend Setup
+
+```
+cd backend
+npm install
+```
+
+Create a `.env` file in `/backend` (refer to `.env.example`):
+
+```
+MONGODB_URI=
+JWT_SECRET=
+MAIL_USER=
+MAIL_PASS=
+...
+```
+
+Start the backend server:
+
+```
+npm run dev
+```
+
+#### 3. Frontend Setup
+
+```
+cd ../frontend
+npm install
+```
+
+Create a `.env` file in `/frontend`:
+
+```
+REACT_APP_API_BASE_URL=http://localhost:5000
+```
+
+Start the frontend:
+
+```
+npm start
+```
+
+#### 4. Access Application
+
+- Frontend: [http://localhost:3000](http://localhost:3000)
+- Backend: [http://localhost:5000](http://localhost:5000)
+
+## Project Structure
+
+```
+/frontend
+  /src
+    /components
+    /pages
+    /redux
+    ...
+
+/backend
+  /controllers
+  /models
+  /routes
+  /middlewares
+  server.js
+
+.env.example
+```
+
+## Core Modules
+
+- /auth     - Authentication, OTP, roles
+- /books    - Book CRUD, search, filter
+- /borrow   - Issuing and returning logic, fines, automation
+- /admin    - User & book management, dashboards
+
+## Customization
+
+- Mail integration (Nodemailer) set via `.env`
+- Fine/overdue settings are customizable in backend config
+- Extendable: add wishlists, recommendations, etc.
+
+## Screenshots
+
+*(Add screenshots/gifs here)*
+
+## Credits
+
+- Tutorial: [CodeWithZeeshu](https://www.youtube.com/@CodeWithZeeshu)
+- Redux Toolkit: [Docs](https://redux-toolkit.js.org/)
+- Tailwind CSS: [Docs](https://tailwindcss.com/)
+
+## License
+
+MIT
+
+---
+
+_Clone, run, and extend! PRs and issues welcome._
+```
+
+---
+
+[1](https://github.com/othneildrew/Best-README-Template)
+[2](https://www.readme-templates.com)
+[3](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
+[4](https://www.reddit.com/r/programming/comments/l0mgcy/github_readme_templates_creating_a_good_readme_is/)
+[5](https://github.com/jehna/readme-best-practices)
+[6](https://everhour.com/blog/github-readme-template/)
+[7](https://www.thegooddocsproject.dev/template/readme)
+[8](https://www.makeareadme.com)
+[9](https://www.youtube.com/watch?v=G-EGDH50hGE)
+[10](https://readme.so)
