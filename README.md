@@ -1,8 +1,4 @@
-Below is a complete **README.md** file written in proper Markdown, ready for use in your MERN Stack Library Management System project. You can copy and use it as-is in your repository. All code blocks, section headers, and instructions follow best open-source practices.
 
-***
-
-```markdown
 # Library Management System (MERN Stack)
 
 A production-grade Library Management System built using the MERN stack (MongoDB, Express, React, Node.js) inspired by CodeWithZeeshu’s YouTube tutorial series. This application features robust authentication, role-based access, secure OTP flows, admin dashboards, real-world book issuing/returning logic, and a responsive interface.
@@ -50,52 +46,47 @@ A production-grade Library Management System built using the MERN stack (MongoDB
 
 #### 1. Clone the repository
 
-```
+
 git clone <your-repo-url>
 cd <project-root>
-```
 
 #### 2. Backend Setup
 
-```
 cd backend
 npm install
-```
 
 Create a `.env` file in `/backend` (refer to `.env.example`):
 
-```
 MONGODB_URI=
 JWT_SECRET=
 MAIL_USER=
 MAIL_PASS=
 ...
-```
 
 Start the backend server:
 
-```
+
 npm run dev
-```
+
 
 #### 3. Frontend Setup
 
-```
+
 cd ../frontend
 npm install
-```
+
 
 Create a `.env` file in `/frontend`:
 
-```
+
 REACT_APP_API_BASE_URL=http://localhost:5000
-```
+
 
 Start the frontend:
 
-```
+
 npm start
-```
+
 
 #### 4. Access Application
 
@@ -104,7 +95,7 @@ npm start
 
 ## Project Structure
 
-```
+
 /frontend
   /src
     /components
@@ -120,7 +111,7 @@ npm start
   server.js
 
 .env.example
-```
+
 
 ## Core Modules
 
@@ -152,17 +143,3 @@ MIT
 ---
 
 _Clone, run, and extend! PRs and issues welcome._
-```
-
----
-
-[1](https://github.com/othneildrew/Best-README-Template)
-[2](https://www.readme-templates.com)
-[3](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
-[4](https://www.reddit.com/r/programming/comments/l0mgcy/github_readme_templates_creating_a_good_readme_is/)
-[5](https://github.com/jehna/readme-best-practices)
-[6](https://everhour.com/blog/github-readme-template/)
-[7](https://www.thegooddocsproject.dev/template/readme)
-[8](https://www.makeareadme.com)
-[9](https://www.youtube.com/watch?v=G-EGDH50hGE)
-[10](https://readme.so)
