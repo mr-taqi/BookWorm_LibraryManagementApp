@@ -124,7 +124,7 @@ npm start
 ```
 ## Screenshots
 
-*(Add screenshots/gifs here)*
+*(Have to Add screenshots/gifs here)*
 ```
 
 ## Credits
